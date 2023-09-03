@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Multistep Form" />
+    <meta
+      name="keywords"
+      content="Frontend Mentor, Multistep Form , nehal, Responsive Designs"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+
+    <!-- Linking CSS stylesheet -->
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css"
+    />
+    <!-- JS Linking -->
+    <script defer src="script.min.js"></script>
+
+    <!-- Phone Number Validation Script -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+    <title>Multistep Form</title>
+  </head>
+
+  <body
+    class="relative font-ubuntu bg-magnolia flex flex-col md:flex-row md:justify-center md:items-center md:min-h-screen md:mx-auto md:max-w-[61rem]"
+  >
+    <!-- HEADER SECTION  -->
+    <header class="relative md:flex">
+      <div
+        class="bg__header md:bg-white md:p-4 md:rounded-bl-xl md:rounded-tl-xl"
+      >
+        <picture>
+          <source
+            media="(min-width: 48rem)"
+            srcset="bg-sidebar-desktop.svg"
+          />
+          <img
+            class="w-full object-cover h-[10.75rem] md:h-[35rem] md:rounded-bl-xl md:rounded-tl-xl"
+            src="bg-sidebar-mobile.svg"
+            alt=""
+          />
+        </picture>
+      </div>
+      <div
+        class="buttons flex gap-4 justify-center items-center absolute top-9 w-full md:flex-col md:gap-6 md:items-start md:px-12 md:py-5"
+      >
+        <!-- Button - 1 -->
+        <div class="btn-group flex items-center gap-4 opacity-90">
+          <button
+            class="active-btn w-8 h-8 text-white font-medium border-[0.0625rem] border-white rounded-3xl bg-transparent transition-all ease-in-out duration-300 cursor-default active"
+          >
+            <span>1</span>
+          </button>
+          <ul class="btn__details text-white uppercase max-md:hidden">
+            <li class="text-[0.85rem] opacity-[85%]">step 1</li>
+            <li class="text-[0.89rem] tracking-wider font-semibold">
+              Your Details
+            </li>
+          </ul>
+        </div>
+
+        <!-- Button - 2 -->
+        <div class="btn-group flex items-center gap-4 opacity-90">
+          <button
+            class="active-btn w-8 h-8 text-white font-medium border-[0.0625rem] border-white rounded-3xl bg-transparent transition-all ease-in-out duration-300 cursor-default"
+          >
+            <span>2</span>
+          </button>
+          <ul class="btn__details text-white uppercase max-md:hidden">
+            <li class="text-[0.85rem] opacity-[85%]">step 2</li>
+            <li class="text-[0.89rem] tracking-wider font-semibold">
+              Select Service
+            </li>
+          </ul>
+        </div>
+
+        <!-- Button - 3 -->
+        <div class="btn-group flex items-center gap-4 opacity-90">
+          <button
+            class="active-btn w-8 h-8 text-white font-medium border-[0.0625rem] border-white rounded-3xl bg-transparent transition-all ease-in-out duration-300 cursor-default"
+          >
+            <span>3</span>
+          </button>
+          <ul class="btn__details text-white uppercase max-md:hidden">
+            <li class="text-[0.85rem] opacity-[85%]">step 3</li>
+            <li class="text-[0.89rem] tracking-wider font-semibold">add ons</li>
+          </ul>
+        </div>
+
+        <!-- Button - 4 -->
+        <div class="btn-group flex items-center gap-4 opacity-90">
+          <button
+            class="active-btn w-8 h-8 text-white font-medium border-[0.0625rem] border-white rounded-3xl bg-transparent transition-all ease-in-out duration-300 cursor-default"
+          >
+            <span>4</span>
+          </button>
+          <ul class="btn__details text-white uppercase max-md:hidden">
+            <li class="text-[0.85rem] opacity-[85%]">step 4</li>
+            <li class="text-[0.89rem] tracking-wider font-semibold">Billing</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN SECTION  -->
+
+    <main
+      class="relative flex justify-center items-center md:flex-1 md:h-[37rem]"
+    >
+      <!-- Step-1  -->
+      <section
+        id="card1"
+        class="card text-[color:var(--marineBlue)] card1 personal-info h-[38rem] w-[93vw] bg-white px-[var(--pxclamp1)] py-[var(--pyclamp1)] rounded-xl absolute -top-[4.5rem] md:static md:w-full md:h-full md:rounded-tl-none md:rounded-bl-none"
+      >
+        <div class="main__content">
+          <h1 class="text-clamp-2 font-bold pb-4">Personal Details</h1>
+          <p class="text-[color:var(--coolGray)] pb-4">
+            Please provide your name, email address, and phone number.
+          </p>
+          <form id="form1" class="form" novalidate>
+            <fieldset class="animate-opacity">
+              <legend class="sr-only">Personal Details</legend>
+
+              <!-- Name -->
+              <div class="flex flex-col-reverse py-2.5 gap-2">
+                <input
+                  class="name text-[color:var(--purplishBlue)] placeholder:text-[color:var(--coolGray)] border-[0.0625rem] border-[color:var(--lightGray)] px-4 py-2 text-sm rounded-md focus:outline-2 focus:outline-sky-600 focus:outline-dotted error-border"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="e.g. Tushar Narang"
+                  autocomplete="name"
+                />
+                <label class="flex items-baseline justify-between" for="name">
+                  <p>Name <span aria-label="required">*</span></p>
+                  <div
+                    class="error-txt text-xs text-[var(--strawberryRed)] italic hidden"
+                  ></div>
+                </label>
+              </div>
+
+              <!-- Email -->
+              <div class="flex flex-col-reverse py-2.5 gap-2">
+                <input
+                  class="email text-[color:var(--purplishBlue)] placeholder:text-[color:var(--coolGray)] border-[0.0625rem] border-[color:var(--lightGray)] px-4 py-2 text-sm rounded-md focus:outline-2 focus:outline-sky-600 focus:outline-dotted error-border"
+                  type="email"
+                  name="email"
+                  id="mail"
+                  placeholder="e.g. narangtushar19@gmail.com"
+                  autocomplete="email"
+                />
+                <label class="flex items-baseline justify-between" for="mail">
+                  <p>Email Address <span aria-label="required">*</span></p>
+                  <div
+                    class="error-txt text-xs text-[var(--strawberryRed)] italic hidden"
+                  ></div>
+                </label>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="flex flex-col-reverse py-2.5 gap-2">
+                <input
+                  class="tel text-[color:var(--purplishBlue)] w-full placeholder:text-[color:var(--coolGray)] border-[0.0625rem] border-[color:var(--lightGray)] px-4 py-2 text-sm rounded-md focus:outline-2 focus:outline-sky-600 focus:outline-dotted error-border"
+                  type="tel"
+                  name="mob-no"
+                  id="mob-number"
+                  required
+                  placeholder="9138145013"
+                  autocomplete="tel"
+                />
+                <label
+                  class="flex items-baseline justify-between"
+                  for="mob-number"
+                >
+                  <p>Phone Number <span aria-label="required">*</span></p>
+                  <div
+                    class="error-txt text-xs text-[var(--strawberryRed)] italic hidden"
+                  ></div>
+                </label>
+              </div>
+            </fieldset>
+
+            <div
+              class="back__next mt-8 absolute bottom-7 left-4 right-4 text-[color:var(--coolGray)] md:px-16"
+            >
+              <div
+                class="buttons mt-8 flex justify-between items-center font-medium"
+              >
+                <button
+                  class="back transition-all ease-in-out duration-200 invisible"
+                >
+                  Go Back
+                </button>
+                <button
+                  class="next text-white bg-[color:var(--marineBlue)] rounded-md py-3 px-[var(--pxclamp2)] transition-all ease-in-out duration-200 hover:opacity-90"
+                  type="submit"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Step-2 -->
+      <section
+        id="card2"
+        class="card text-[color:var(--marineBlue)] card2 select-plan h-[38rem] w-[93vw] bg-white px-[var(--pxclamp1)] py-[var(--pyclamp1)] md:px-[5.5rem] md:py-14 rounded-xl absolute -top-[4.5rem] md:static md:w-full md:h-full md:rounded-tl-none md:rounded-bl-none hidden"
+      >
+        <div class="main__content">
+          <h1 class="text-2xl font-bold pb-4 md:text-[2rem]">
+            Select your plan
+          </h1>
+          <p class="text-[color:var(--coolGray)] pb-6">
+            You have the option of monthly or yearly billing.
+          </p>
+
+          <!-- form2 -->
+          <form id="form2" class="form" novalidate>
+            <fieldset class="animate-opacity">
+              <legend class="sr-only">Select your plan</legend>
+              <div class="cards flex flex-col justify-center items-center">
+                <!-- All Three Selection Cards -->
+                <div
+                  class="main__card w-full flex flex-col justify-center items-center gap-3 md:flex-row"
+                >
+                  <input
+                    id="arcade__card"
+                    type="radio"
+                    class="sr-only input"
+                    name="selectedCard"
+                    value="arcade__card"
+                    checked
+                  />
+                  <label
+                    for="arcade__card"
+                    class="arcade__card w-full flex gap-10 px-[var(--pxclamp3)] py-4 border-[0.0938rem] transition-all ease-in-out duration-200 hover:scale-105 hover:border-[var(--darkPurple)] rounded-md cursor-pointer md:flex-col hover:shadow-2xl"
+                  >
+                    <img
+                      class="aspect-square my-auto w-10 h-10"
+                      src="icon-arcade.svg"
+                      alt=""
+                    />
+                    <div class="detail flex flex-col justify-start items-start">
+                      <p
+                        class="plan__name font-medium text-[color:var(--marineBlue)]"
+                      >
+                        Arcade
+                      </p>
+                      <p
+                        class="price text-sm text-[color:var(--coolGray)] monthly"
+                      >
+                        $9/mo
+                      </p>
+                    </div>
+                  </label>
+
+                  <input
+                    id="advanced__card"
+                    type="radio"
+                    class="sr-only input"
+                    name="selectedCard"
+                    value="advanced__card"
+                  />
+                  <label
+                    for="advanced__card"
+                    class="advanced__card w-full flex gap-10 px-[var(--pxclamp3)] py-4 border-[0.0938rem] transition-all ease-in-out duration-200 hover:scale-105 hover:border-[var(--darkPurple)] rounded-md cursor-pointer md:flex-col hover:shadow-2xl"
+                  >
+                    <img
+                      class="aspect-square my-auto w-10 h-10"
+                      src="icon-advanced.svg"
+                      alt=""
+                    />
+                    <div class="detail flex flex-col justify-start items-start">
+                      <p
+                        class="plan__name font-medium text-[color:var(--marineBlue)]"
+                      >
+                        Advanced
+                      </p>
+                      <p
+                        class="price text-sm text-[color:var(--coolGray)] monthly"
+                      >
+                        $12/mo
+                      </p>
+                    </div>
+                  </label>
+
+                  <input
+                    id="pro__card"
+                    type="radio"
+                    class="sr-only input"
+                    name="selectedCard"
+                    value="pro__card"
+                  />
+                  <label
+                    for="pro__card"
+                    class="pro__card w-full flex gap-10 px-[var(--pxclamp3)] py-4 border-[0.0938rem] transition-all ease-in-out duration-200 hover:scale-105 hover:border-[var(--darkPurple)] rounded-md cursor-pointer md:flex-col hover:shadow-2xl"
+                  >
+                    <img
+                      class="aspect-square my-auto w-10 h-10"
+                      src="icon-pro.svg"
+                      alt=""
+                    />
+                    <div class="detail flex flex-col justify-start items-start">
+                      <p
+                        class="plan__name font-medium text-[color:var(--marineBlue)]"
+                      >
+                        Pro
+                      </p>
+                      <p
+                        class="price text-sm text-[color:var(--coolGray)] monthly"
+                      >
+                        $15/mo
+                      </p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <!-- Toggle Card -->
+            <div
+              class="toggle__card flex justify-center w-full gap-4 p-3 mt-7 rounded-md bg-[color:var(--magnolia)] text-[var(--coolGray)]"
+            >
+              <p class="font-medium mo active-color">Monthly</p>
+
+              <div>
+                <label
+                  class="relative inline-flex items-center cursor-pointer"
+                  for="toggler"
+                >
+                  <input
+                    id="toggler"
+                    type="checkbox"
+                    value=""
+                    class="sr-only peer"
+                  />
+                  <div
+                    class="toggler w-11 h-6 bg-gray-200 rounded-full dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[color:var(--marineBlue)] cursor-pointer"
+                  ></div>
+                </label>
+              </div>
+              <p class="font-medium yr">Yearly</p>
+            </div>
+            <!-- Back Next Card -->
+            <div
+              class="back__next mt-8 absolute bottom-7 left-4 right-4 text-[color:var(--coolGray)] md:px-16"
+            >
+              <div
+                class="buttons mt-8 flex justify-between items-center font-medium"
+              >
+                <button
+                  onclick="backStep(1)"
+                  class="back hover:text-[color:var(--marineBlue)] transition-all ease-in-out duration-200"
+                  type="button"
+                >
+                  Go Back
+                </button>
+                <button
+                  class="next text-white bg-[color:var(--marineBlue)] rounded-md py-3 px-[var(--pxclamp2)] transition-all ease-in-out duration-200 hover:opacity-90"
+                  type="submit"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Step-3 -->
+      <section
+        id="card3"
+        class="card text-[color:var(--marineBlue)] card3 pick__add-ons h-[38rem] w-[93vw] bg-white px-[var(--pxclamp1)] py-[var(--pyclamp1)] md:px-[5.5rem] md:py-14 rounded-xl absolute -top-[4.5rem] md:static md:w-full md:h-full md:rounded-tl-none md:rounded-bl-none hidden"
+      >
+        <div class="main__content">
+          <h1 class="text-2xl font-bold pb-4 md:text-[2rem]">Pick add-ons</h1>
+          <p class="text-[color:var(--coolGray)] pb-4">
+            Add-ons help enhance your gaming experience.
+          </p>
+
+          <form id="form3" class="form" novalidate>
+            <fieldset class="animate-opacity">
+              <legend class="sr-only">Pick add-ons</legend>
+              <div
+                class="cards flex flex-col justify-center items-center gap-3"
+              >
+                <!-- 1 -->
+
+                <div
+                  class="online-services__card flex gap-3 w-full p-2.5 md:p-4 border-[0.0938rem] transition-all ease-in-out duration-200 hover:scale-105 hover:border-[var(--darkPurple)] rounded-md cursor-pointer hover:shadow-2xl"
+                >
+                  <input
+                    id="online-services"
+                    class="w-5 h-5 text-[color:var(--purplishBlue)] cursor-pointer my-auto"
+                    type="radio"
+                    name="addOns"
+                    value="online-services__card"
+                  />
+
+                  <label
+                    for="online-services"
+                    class="w-full flex justify-between cursor-pointer"
+                  >
+                    <div class="main__detail flex gap-3 md:gap-4">
+                      <div class="detail flex flex-col">
+                        <p
+                          class="add-on__name font-medium text-[color:var(--marineBlue)]"
+                        >
+                          Online Services
+                        </p>
+                        <small class="text-sm text-[color:var(--coolGray)]">
+                          Access to multiplayer games
+                        </small>
+                      </div>
+                    </div>
+                    <p class="price my-auto text-[color:var(--purplishBlue)]">
+                      +$2/mo
+                    </p>
+                  </label>
+                </div>
+
+                <!-- 2 -->
+                <div
+                  class="larger-storage__card flex gap-3 w-full p-2.5 md:p-4 border-[0.0938rem] transition-all ease-in-out duration-200 hover:scale-105 hover:border-[var(--darkPurple)] rounded-md cursor-pointer hover:shadow-2xl"
+                >
+                  <input
+                    id="larger-storage"
+                    class="w-5 h-5 text-[color:var(--purplishBlue)] cursor-pointer my-auto"
+                    type="radio"
+                    name="addOns"
+                    value="larger-storage__card"
+                    checked
+                  />
+
+                  <label
+                    for="larger-storage"
+                    class="w-full flex justify-between cursor-pointer"
+                  >
+                    <div class="main__detail flex gap-3 md:gap-4">
+                      <div class="detail flex flex-col">
+                        <p
+                          class="add-on__name font-medium text-[color:var(--marineBlue)]"
+                        >
+                          Larger storage
+                        </p>
+
+                        <small class="text-sm text-[color:var(--coolGray)]">
+                          Extra 1TB of cloud save
+                        </small>
+                      </div>
+                    </div>
+                    <p class="price my-auto text-[color:var(--purplishBlue)]">
+                      +$3/mo
+                    </p>
+                  </label>
+                </div>
+
+                <!-- 3 -->
+                <div
+                  class="customizable-profile__card flex gap-3 w-full p-2.5 md:p-4 border-[0.0938rem] transition-all ease-in-out duration-200 hover:scale-105 hover:border-[var(--darkPurple)] rounded-md cursor-pointer hover:shadow-2xl"
+                >
+                  <input
+                    id="customizable-profile"
+                    class="w-5 h-5 text-[color:var(--purplishBlue)] cursor-pointer my-auto"
+                    type="radio"
+                    name="addOns"
+                    value="customizable-profile__card"
+                  />
+                  <label
+                    for="customizable-profile"
+                    class="w-full flex justify-between cursor-pointer"
+                  >
+                    <div class="main__detail flex gap-3 md:gap-4">
+                      <div class="detail flex flex-col">
+                        <p
+                          class="add-on__name font-medium text-[color:var(--marineBlue)]"
+                        >
+                          Customizable Profile
+                        </p>
+
+                        <small class="text-sm text-[color:var(--coolGray)]">
+                          Custom theme on your profile
+                        </small>
+                      </div>
+                    </div>
+                    <p class="price my-auto text-[color:var(--purplishBlue)]">
+                      +$4/mo
+                    </p>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <div
+              class="back__next mt-8 absolute bottom-7 left-4 right-4 text-[color:var(--coolGray)] md:px-16"
+            >
+              <div
+                class="buttons mt-8 flex justify-between items-center font-medium"
+              >
+                <button
+                  onclick="backStep(2)"
+                  class="back hover:text-[color:var(--marineBlue)] transition-all ease-in-out duration-200"
+                  type="button"
+                >
+                  Go Back
+                </button>
+                <button
+                  class="next text-white bg-[color:var(--marineBlue)] rounded-md py-3 px-[var(--pxclamp2)] transition-all ease-in-out duration-200 hover:opacity-90"
+                  type="submit"
+                >
+                  Next Step
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Step-4 -->
+      <section
+        id="card4"
+        class="card text-[color:var(--marineBlue)] card4 finishing-up h-[38rem] w-[93vw] bg-white px-[var(--pxclamp1)] py-[var(--pyclamp1)] md:px-[5.5rem] md:py-14 rounded-xl absolute -top-[4.5rem] md:static md:w-full md:h-full md:rounded-tl-none md:rounded-bl-none hidden"
+      >
+        <div class="main__content">
+          <h1 class="text-2xl font-bold pb-4 md:text-[2rem]">Finishing Up</h1>
+          <p class="text-[color:var(--coolGray)] pb-4">
+            Double-check everything looks OK before confirming.
+          </p>
+          <form id="form4" class="form" novalidate>
+            <fieldset class="animate-opacity">
+              <legend class="sr-only">Confirmation Page</legend>
+              <div
+                class="cards flex flex-col gap-4 bg-[var(--alabaster)] mb-4 w-full p-4 transition-all ease-in-out duration-200 rounded-md"
+              >
+                <div class="arcade-card flex justify-between pb-3 opacity-95">
+                  <div class="detail py-6">
+                    <p
+                      class="selected__plan font-bold text-[color:var(--marineBlue)]"
+                    >
+                      Arcade (Monthly)
+                    </p>
+
+                    <p></p>
+                    <button
+                      class="change text-sm text-[color:var(--coolGray)] underline hover:text-[var(--purplishBlue)] cursor-pointer"
+                      type="button"
+                    >
+                      Change
+                    </button>
+                  </div>
+                  <p
+                    class="selected__plan-price my-auto font-bold text-[color:var(--marineBlue)]"
+                  >
+                    $90/yr
+                  </p>
+                </div>
+
+                <div class="online-services flex justify-between opacity-90">
+                  <p class="selected__add-on text-[color:var(--coolGray)]"></p>
+
+                  <p
+                    class="selected__add-on-price my-auto text-[color:var(--marineBlue)]"
+                  ></p>
+                </div>
+              </div>
+              <div class="total w-full p-4 flex justify-between opacity-90">
+                <p class="total-duration text-[color:var(--coolGray)]"></p>
+
+                <p
+                  class="total-cost my-auto text-lg font-bold text-[color:var(--purplishBlue)]"
+                ></p>
+              </div>
+            </fieldset>
+            <div
+              class="back__next mt-8 absolute bottom-7 left-4 right-4 text-[color:var(--coolGray)] md:px-16"
+            >
+              <div
+                class="buttons mt-8 flex justify-between items-center font-medium"
+              >
+                <button
+                  onclick="backStep(3)"
+                  class="back hover:text-[color:var(--marineBlue)] transition-all ease-in-out duration-200"
+                  type="button"
+                >
+                  Go Back
+                </button>
+                <button
+                  class="next text-white bg-[color:var(--purplishBlue)] hover:bg-green-600 rounded-md py-3 px-[var(--pxclamp2)] transition-all ease-in-out duration-200 hover:opacity-90"
+                  type="submit"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Thank You Card -->
+      <section
+        id="thankyoucard"
+        class="card text-[color:var(--marineBlue)] card5 thank-you h-[29.875rem] w-[93vw] bg-white flex justify-center items-center px-4 py-7 md:px-[5.5rem] md:py-14 rounded-xl absolute -top-[4.5rem] md:static md:w-full md:h-full md:rounded-tl-none md:rounded-bl-none hidden"
+      >
+        <div
+          class="main__content text-center flex flex-col items-center animate-opacity"
+        >
+          <img
+            class="thanku__tick animate-rotate-y aspect-square pb-7 hover:fill-green-600"
+            src="icon-thank-you.svg"
+            alt=""
+          />
+
+          <h1 class="text-2xl font-bold pb-4 md:text-[2rem]">Thank you!</h1>
+          <p class="confirmation text-[color:var(--coolGray)]">
+            Thanks for confirming your subscription! We hope you have fun using
+            our platform. If you ever need support, please feel free to email us
+            at professionalnehal@outlook.com.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
